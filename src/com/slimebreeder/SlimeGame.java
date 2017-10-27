@@ -48,7 +48,7 @@ public class SlimeGame {
 	}
 	
 	public void render(Graphics g) {
-		g.setColor(new Color(0x7B9D7B));
+		g.setColor(new Color(0xE3CEF6));
 		g.fillRect(0, 0, WIDTH, HEIGHT );
 		
 		for (Slime s : slimeList) {
