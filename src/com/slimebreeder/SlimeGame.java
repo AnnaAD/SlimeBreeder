@@ -96,13 +96,16 @@ public class SlimeGame {
 		for (Slime s : slimeList) {
 			if(x > s.getX() && x < s.getX()+s.getSize() && y > s.getY() && y < s.getY()+s.getSize()) {
 				System.out.println("Slime clicked at "+x+","+y );
-				selectedSlimes.add(s);
+				if(selectedSlimes.contains(s)){
+					selectedSlimes.remove(s);
+				}else{
+					selectedSlimes.add(s);
+				}
 			}
 		}
 		if(selectedSlimes.size() >= 2) {
 			breed();
-		}
-		
+		}		
 	}
 	
 	public void breed() {
