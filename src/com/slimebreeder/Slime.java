@@ -131,6 +131,10 @@ public class Slime {
 	public void render(Graphics g) {	
 		g.drawImage(colorImage, x, y, size, size, null);
 	}
+	
+	public int getValue() {
+		return pedigree + size/2 + age/5;
+	}
 
 	public Color getColor() {
 		return color;
