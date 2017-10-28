@@ -103,7 +103,10 @@ public class SlimeGame {
 	}
 	
 	public void breed() {
-		slimeList.add(new Slime(selectedSlimes.get(0), selectedSlimes.get(1)));
+		if(selectedSlimes.get(0).getAge() >= 2 & selectedSlimes.get(1).getAge() >= 2) {
+			slimeList.add(new Slime(selectedSlimes.get(0), selectedSlimes.get(1)));
+		}else
+			System.out.println("Cannot breed baby Slimes");
 		selectedSlimes.clear();
 	}
 }
