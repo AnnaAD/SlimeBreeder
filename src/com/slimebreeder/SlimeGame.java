@@ -109,4 +109,19 @@ public class SlimeGame {
 			System.out.println("Cannot breed baby Slimes");
 		selectedSlimes.clear();
 	}
+	public void buySlime() {
+		slimeList.add(new Slime());
+		money-=30;
+	}
+	
+	//If only 1 slime is selected, sells that slime
+	public void sellSlime() {
+		if(selectedSlimes.size()==1) {
+			money += selectedSlimes.get(1).getValue();
+			slimeList.remove(selectedSlimes.get(1));
+			selectedSlimes.clear();
+			}else{
+			System.out.println("Wrong number of Slimes selected");
+		}
+	}
 }
