@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 import java.io.File;
 import java.io.IOException;
+import java.util.Comparator;
 
 import javax.imageio.ImageIO;
 
@@ -35,7 +36,7 @@ public class Slime {
 		name = name;
 		pedigree = pedigree;
 		x=(int)(Math.random()*(gameWidth-50)+25);
-		y=(int)(Math.random()*(gameHeight-100)+80);
+		y=(int)(Math.random()*(gameHeight-250)+200);
 		colorImage = tintImage(slimeImage);
 		//colorImage = colorImage(slimeImage,color.getRed(),color.getBlue(),color.getGreen())
 	}
@@ -89,7 +90,7 @@ public class Slime {
 			if(Math.random()<0.002){
 				destination=new int[2];
 				destination[0] = (int)(Math.random()*(gameWidth - 50)+25);
-				destination[1] = (int)(Math.random()*(gameHeight-100) + 80);
+				destination[1] = (int)(Math.random()*(gameHeight-250) + 200);
 			}	
 		}else{
 			//System.out.println("Position: "+x+","+y+" Destination: "+destination[0]+","+destination[1]);
@@ -173,6 +174,14 @@ public class Slime {
 	public static void setGameHeight(int gameHeight) {
 		Slime.gameHeight = gameHeight;
 	}
-
+	
+	public static Comparator<Slime> compareByY() {
+		Comparator<Slime> comp = new Comparator<Slime>() {
+			public int compare(Slime s1, Slime s2) {
+				return (s1.getY() - s2.getY());
+			}
+		};
+		return comp;
+	}
 	
 }

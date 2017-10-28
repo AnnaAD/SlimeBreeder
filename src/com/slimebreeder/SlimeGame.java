@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.imageio.ImageIO;
 
@@ -51,7 +52,7 @@ public class SlimeGame {
 	
 	public void render(Graphics g) {
 		g.drawImage(background, 0,0,WIDTH, HEIGHT,null);
-		
+		Collections.sort(slimeList, Slime.compareByY());
 		for (Slime s : slimeList) {
 			s.render(g);
 		}
