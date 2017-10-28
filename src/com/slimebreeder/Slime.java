@@ -28,8 +28,8 @@ public class Slime {
 		color = new Color((int)(Math.random()*0x1000000));
 		size = (int) (Math.random()*20+70);
 		age = 2;
-		name = name;
-		pedigree = pedigree;
+		name = "";
+		pedigree = (int)(Math.random()*100+5);
 		x=(int)(Math.random()*(gameWidth-50)+25);
 		y=(int)(Math.random()*(gameHeight-250)+200);
 		colorImage = tintImage(slimeImage);
@@ -42,7 +42,7 @@ public class Slime {
         int b = (parent1.getColor().getBlue() + parent2.getColor().getBlue()) / 2;
         color = new Color(r,g,b);
         size = ((parent1.getSize() + parent2.getSize())/2 - 40) + (int)((Math.random() * 10) - 5);
-        pedigree = (parent1.getSize() + parent2.getSize())/2 + (int)((Math.random() * 10) - 5);
+        pedigree = (parent1.getPedigree() + parent2.getPedigree())/2 + (int)((Math.random() * 10) - 5);
         x = (parent1.getX() + parent2.getX())/2;
         y = (parent1.getY() + parent2.getY())/2;
         colorImage = tintImage(slimeImage);
@@ -134,6 +134,10 @@ public class Slime {
 	
 	public int getValue() {
 		return pedigree + size/2 + age/5;
+	}
+	
+	public int getPedigree() {
+		return pedigree;
 	}
 
 	public Color getColor() {
