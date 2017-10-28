@@ -2,15 +2,10 @@ package com.slimebreeder;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
+
 import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.io.File;
-import java.io.IOException;
 import java.util.Comparator;
 
-import javax.imageio.ImageIO;
 
 public class Slime {
 	private static BufferedImage slimeImage;
@@ -133,8 +128,7 @@ public class Slime {
 		}
 	}
 	
-	public void render(Graphics g) {
-		
+	public void render(Graphics g) {	
 		g.drawImage(colorImage, x, y, size, size, null);
 	}
 
