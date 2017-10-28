@@ -1,6 +1,7 @@
 package com.slimebreeder;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -19,12 +20,17 @@ public class SlimeGame {
 	private ArrayList<Slime> selectedSlimes;
 	private final int NUM_SLIMES=2;
 	private BufferedImage background;
+	private BufferedImage moneyIcon;
+	
+	private int money;
 
 	public  SlimeGame(int width, int height) {
 		WIDTH = width;
 		HEIGHT = height;
+		money = 100;
 		background = loadImage("res/background.png");
 		Slime.setSlimeImage(loadImage("res/slime.png"));
+		moneyIcon = loadImage("res/moneyicon.png");
 		Slime.setGameHeight(HEIGHT);
 		Slime.setGameWidth(WIDTH);
 		slimeList = new ArrayList<Slime>();
@@ -52,6 +58,13 @@ public class SlimeGame {
 	
 	public void render(Graphics g) {
 		g.drawImage(background, 0,0,WIDTH, HEIGHT,null);
+		g.drawImage(moneyIcon, 5, 5, moneyIcon.getWidth()/2, moneyIcon.getHeight()/2,null);
+		Font f = new Font("SansSerif", Font.PLAIN, 30);
+		g.setFont(f);
+		g.drawString(Integer.toString(money), 10+moneyIcon.getWidth()/2, g.getFontMetrics(f).getHeight()/2 + moneyIcon.getHeight()/4);
+		Font n = new Font("TimesRoman", Font.ITALIC, 30);
+		g.setFont(n);
+		g.drawString("Slime Breeder", 555, 150);
 		Collections.sort(slimeList, Slime.compareByY());
 		for (Slime s : slimeList) {
 			s.render(g);

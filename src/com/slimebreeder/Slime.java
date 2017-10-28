@@ -178,7 +178,7 @@ public class Slime {
 	public static Comparator<Slime> compareByY() {
 		Comparator<Slime> comp = new Comparator<Slime>() {
 			public int compare(Slime s1, Slime s2) {
-				return (s1.getY() - s2.getY());
+				return ((s1.getY()+s1.getSize()) - (s2.getSize() +s2.getY()));
 			}
 		};
 		return comp;
