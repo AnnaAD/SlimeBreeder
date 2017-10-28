@@ -10,6 +10,7 @@ import java.util.Comparator;
 public class Slime {
 	private static BufferedImage slimeImage;
 	private BufferedImage colorImage;
+	private static BufferedImage shadowImage;
 	
 	private Color color;
 	private int size;
@@ -133,6 +134,10 @@ public class Slime {
 		
 	}
 	
+	public void renderShadow(Graphics g){
+		g.drawImage(shadowImage, x, y, size, size, null);
+	}
+	
 	public int getValue() {
 		return pedigree + size/2 + age/5;
 	}
@@ -167,6 +172,7 @@ public class Slime {
 
 	public static void setImages(BufferedImage slimeImage, BufferedImage shadowImage) {
 		Slime.slimeImage = slimeImage;
+		Slime.shadowImage = shadowImage;
 	}
 	
 	

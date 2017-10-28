@@ -86,6 +86,9 @@ public class SlimeGame {
 		for (Slime s : slimeList) {
 			s.render(g);
 		}
+		for(Slime s : selectedSlimes){
+			s.renderShadow(g);
+		}
 		
 	}
 	
