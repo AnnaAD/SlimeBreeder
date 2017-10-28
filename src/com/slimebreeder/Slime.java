@@ -63,9 +63,9 @@ public class Slime {
 		for (int x = 0; x < img.getWidth(); x++) {
 	        for (int y = 0; y < img.getHeight(); y++) {
 	        	Color pixelColor = new Color(img.getRGB(x, y), true);
-	            int r = (pixelColor.getRed() + color.getRed()) / 2;
-	            int g = (pixelColor.getGreen() + color.getGreen()) / 2;
-	            int b = (pixelColor.getBlue() + color.getBlue()) / 2;
+	            int r = (pixelColor.getRed() + 2*color.getRed()) / 3;
+	            int g = (pixelColor.getGreen() + 2*color.getGreen()) / 3;
+	            int b = (pixelColor.getBlue() + 2*color.getBlue()) / 3;
 	            int a = pixelColor.getAlpha();
 	            int rgba = (a << 24) | (r << 16) | (g << 8) | b;
 	            if(pixelColor.getRed() > 3) {

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 import javax.imageio.ImageIO;
 
 
@@ -25,6 +26,8 @@ public class SlimeGame {
 	private BufferedImage background;
 	private BufferedImage moneyIcon;
 	private Font f;
+	private Button sell;
+	
 	
 	private int money;
 
