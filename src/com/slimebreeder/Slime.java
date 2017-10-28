@@ -34,8 +34,8 @@ public class Slime {
 		age = 2;
 		name = name;
 		pedigree = pedigree;
-		x=(int)(Math.random()*gameWidth);
-		y=(int)(Math.random()*gameHeight);
+		x=(int)(Math.random()*(gameWidth-50)+25);
+		y=(int)(Math.random()*(gameHeight-100)+80);
 		colorImage = tintImage(slimeImage);
 		//colorImage = colorImage(slimeImage,color.getRed(),color.getBlue(),color.getGreen())
 	}
@@ -88,8 +88,8 @@ public class Slime {
 		if(destination==null){
 			if(Math.random()<0.002){
 				destination=new int[2];
-				destination[0] = (int)(Math.random()*gameWidth);
-				destination[1] = (int)(Math.random()*gameHeight);
+				destination[0] = (int)(Math.random()*(gameWidth - 50)+25);
+				destination[1] = (int)(Math.random()*(gameHeight-100) + 80);
 			}	
 		}else{
 			//System.out.println("Position: "+x+","+y+" Destination: "+destination[0]+","+destination[1]);

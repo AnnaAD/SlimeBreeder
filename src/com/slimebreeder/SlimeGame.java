@@ -17,10 +17,12 @@ public class SlimeGame {
 	private ArrayList<Slime> slimeList;
 	private ArrayList<Slime> selectedSlimes;
 	private final int NUM_SLIMES=2;
+	private BufferedImage background;
 
 	public  SlimeGame(int width, int height) {
 		WIDTH = width;
 		HEIGHT = height;
+		background = loadImage("res/background.png");
 		Slime.setSlimeImage(loadImage("res/slime.png"));
 		Slime.setGameHeight(HEIGHT);
 		Slime.setGameWidth(WIDTH);
@@ -48,8 +50,7 @@ public class SlimeGame {
 	}
 	
 	public void render(Graphics g) {
-		g.setColor(new Color(0xE3CEF6));
-		g.fillRect(0, 0, WIDTH, HEIGHT );
+		g.drawImage(background, 0,0,WIDTH, HEIGHT,null);
 		
 		for (Slime s : slimeList) {
 			s.render(g);
