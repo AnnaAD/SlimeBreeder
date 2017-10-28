@@ -2,8 +2,11 @@ package com.slimebreeder;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +24,7 @@ public class SlimeGame {
 	private final int NUM_SLIMES=2;
 	private BufferedImage background;
 	private BufferedImage moneyIcon;
+	private Font f;
 	
 	private int money;
 
@@ -31,6 +35,13 @@ public class SlimeGame {
 		background = loadImage("res/background.png");
 		Slime.setSlimeImage(loadImage("res/slime.png"));
 		moneyIcon = loadImage("res/moneyicon.png");
+		try {
+			f = Font.createFont(Font.TRUETYPE_FONT, new File("res/PatrickHand-Regular.ttf"));
+		} catch (FontFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
 		Slime.setGameHeight(HEIGHT);
 		Slime.setGameWidth(WIDTH);
 		slimeList = new ArrayList<Slime>();
@@ -57,14 +68,17 @@ public class SlimeGame {
 	}
 	
 	public void render(Graphics g) {
+		((Graphics2D)g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB); //makes text look so much better! At least on my computer...
 		g.drawImage(background, 0,0,WIDTH, HEIGHT,null);
+		
 		g.drawImage(moneyIcon, 5, 5, moneyIcon.getWidth()/2, moneyIcon.getHeight()/2,null);
-		Font f = new Font("SansSerif", Font.PLAIN, 30);
-		g.setFont(f);
-		g.drawString(Integer.toString(money), 10+moneyIcon.getWidth()/2, g.getFontMetrics(f).getHeight()/2 + moneyIcon.getHeight()/4);
-		Font n = new Font("TimesRoman", Font.ITALIC, 30);
-		g.setFont(n);
+		Font nf = f.deriveFont(40f);
+		g.setFont(nf);
+		g.drawString(Integer.toString(money), 10+moneyIcon.getWidth()/2, moneyIcon.getHeight()/4 + g.getFontMetrics(nf).getHeight()/2 - 8);
+		
+		g.setFont(f.deriveFont(35f));
 		g.drawString("Slime Breeder", 555, 150);
+		
 		Collections.sort(slimeList, Slime.compareByY());
 		for (Slime s : slimeList) {
 			s.render(g);
