@@ -36,7 +36,7 @@ public class SlimeGame {
 		HEIGHT = height;
 		money = 100;
 		background = loadImage("res/background.png");
-		Slime.setSlimeImage(loadImage("res/slime.png"));
+		Slime.setImages(loadImage("res/slime.png"),loadImage("res/shadow.png"));
 		moneyIcon = loadImage("res/moneyicon.png");
 		try {
 			f = Font.createFont(Font.TRUETYPE_FONT, new File("res/PatrickHand-Regular.ttf"));

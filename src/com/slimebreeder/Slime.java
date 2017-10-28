@@ -130,6 +130,7 @@ public class Slime {
 	
 	public void render(Graphics g) {	
 		g.drawImage(colorImage, x, y, size, size, null);
+		
 	}
 	
 	public int getValue() {
@@ -164,7 +165,7 @@ public class Slime {
 		return size;
 	}
 
-	public static void setSlimeImage(BufferedImage slimeImage) {
+	public static void setImages(BufferedImage slimeImage, BufferedImage shadowImage) {
 		Slime.slimeImage = slimeImage;
 	}
 	
