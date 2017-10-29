@@ -2,13 +2,9 @@ package com.slimebreeder;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferInt;
-
 import javax.swing.JFrame;
 
 public class GameManager extends Canvas implements Runnable {

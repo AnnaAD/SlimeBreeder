@@ -84,11 +84,11 @@ public class SlimeGame {
 		g.drawString("Slime Breeder", 555, 150);
 		
 		Collections.sort(slimeList, Slime.compareByY());
-		for (Slime s : slimeList) {
-			s.render(g);
+		for(int i=0;i<slimeList.size();i++) {
+			slimeList.get(i).render(g);
 		}
-		for(Slime s : selectedSlimes){
-			s.renderShadow(g);
+		for(int i=0;i<selectedSlimes.size();i++) {
+			selectedSlimes.get(i).renderShadow(g);
 		}
 		
 	}
