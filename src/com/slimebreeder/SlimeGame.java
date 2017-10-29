@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -35,9 +36,9 @@ public class SlimeGame {
 		WIDTH = width;
 		HEIGHT = height;
 		money = 100;
-		background = loadImage("res/background.png");
-		Slime.setImages(loadImage("res/slime.png"),loadImage("res/shadow.png"));
-		moneyIcon = loadImage("res/moneyicon.png");
+		background = loadImage("./res/background.png");
+		Slime.setImages(loadImage("./res/slime.png"),loadImage("./res/shadow.png"));
+		moneyIcon = loadImage("./res/moneyicon.png");
 		try {
 			f = Font.createFont(Font.TRUETYPE_FONT, new File("res/PatrickHand-Regular.ttf"));
 		} catch (FontFormatException e) {
@@ -123,11 +124,21 @@ public class SlimeGame {
 	//If only 1 slime is selected, sells that slime
 	public void sellSlime() {
 		if(selectedSlimes.size()==1) {
-			money += selectedSlimes.get(1).getValue();
-			slimeList.remove(selectedSlimes.get(1));
+			money += selectedSlimes.get(0).getValue();
+			slimeList.remove(selectedSlimes.get(0));
 			selectedSlimes.clear();
 			}else{
 			System.out.println("Wrong number of Slimes selected");
+		}
+	}
+	
+	public void keyPressed(KeyEvent keyEvent) {
+		char charPressed = keyEvent.getKeyChar();
+		if(charPressed=='s'){
+			sellSlime();
+		}else if(charPressed=='b'){
+			if(money>40)
+				buySlime();
 		}
 	}
 }

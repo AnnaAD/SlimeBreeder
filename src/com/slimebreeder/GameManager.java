@@ -46,6 +46,7 @@ public class GameManager extends Canvas implements Runnable {
 		slimeGame = new SlimeGame(WIDTH*SCALE, HEIGHT*SCALE);
 		inputHandler = new InputHandler(slimeGame);
 		addMouseListener(inputHandler);
+		addKeyListener(inputHandler);
 	}
 	
 	public synchronized void start() {
