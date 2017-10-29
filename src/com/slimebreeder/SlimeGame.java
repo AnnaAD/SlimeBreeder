@@ -73,7 +73,7 @@ public class SlimeGame {
 	
 	public void render(Graphics g) {
 		((Graphics2D)g).setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB); //makes text look so much better! At least on my computer...
-		g.drawImage(background, 0,0,WIDTH, HEIGHT,null);
+		g.drawImage(background, 0,0,WIDTH+10, HEIGHT+10,null);
 		
 		g.drawImage(moneyIcon, 5, 5, moneyIcon.getWidth()/2, moneyIcon.getHeight()/2,null);
 		Font nf = f.deriveFont(40f);
